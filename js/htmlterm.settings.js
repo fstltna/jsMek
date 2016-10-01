@@ -6,8 +6,8 @@ mg.isConnected = false;
 mg.isDbOpen = false;
 
 // fTelnet defaults
-mg.serverName = 'empiredirectory.net';
-mg.port = 4321;
+mg.serverName = 'mekcity.com';
+mg.port = 5555;
 mg.playerName = '';
 mg.password = '';
 mg.gameDescription = '';
@@ -45,9 +45,9 @@ mg.fTelnetSettings = function () {
 	fTelnet.ConnectionType = 'telnet'; // only option for the time being, don't touch it
 	fTelnet.Enter = '\r\n';
 	fTelnet.Font = 'CP437';
-	fTelnet.Hostname = 'empiredirectory.net';
+	fTelnet.Hostname = 'mekcity.com';
 	fTelnet.LocalEcho = true;
-	fTelnet.Port = 3458;
+	fTelnet.Port = 5555;
 	fTelnet.ProxyHostname = mg.serverName;
 	fTelnet.ProxyPort = mg.port;
 //	fTelnet.ProxyPortSecure = 4321; // I think Marisa doesn't got this one configured

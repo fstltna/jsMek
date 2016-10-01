@@ -1,11 +1,11 @@
 {
-  "name": "jsimp javascript imperium client",
+  "name": "jsmek javascript battletech mux client",
   "version": "0.1.0",
   "authors": [
     "Fernando L. Canizo (aka conan) <conan@muriandre.com>",
     "Marisa Giancarla (aka MarisaG) <fstltna@me.com>"
   ],
-  "description": "A nice web UI for the multiplayer network game Imperium",
+  "description": "A nice web UI for the multiplayer network game Battletech MUX",
   "main": "index.html",
   "license": "MIT",
   "homepage": "http://demos.muriandre.com/empiredirectory.net/",
