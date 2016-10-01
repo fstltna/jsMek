@@ -1,0 +1,4 @@
+Just some goals:
+================
+1) Check if host name in key matches host dns in use. If so then don't
+   display ads and allow multiple servers
