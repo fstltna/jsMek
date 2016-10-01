@@ -7,3 +7,13 @@ function UrlExists(url)
     http.send();
     return http.status==200;
 }
+--
+another version?
+--
+$.get("/ipaid.txt")
+    .done(function() { 
+        // exists code 
+    }).fail(function() { 
+        // not exists code
+    })
+---
