@@ -1,0 +1,12 @@
+body {
+	padding-top: 70px;
+}
+
+.centeredImage {
+	margin: 0 auto;
+	display: block;
+}
+
+.dropdown-menu > li > a.disabled {
+	color: #555;
+}

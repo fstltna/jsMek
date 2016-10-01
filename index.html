@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jsImp - JavaScript Imperium Client</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="JavaScript/HTML5 Imperium Client">
+
+		<meta name="author" content="Fernando L. Canizo, Marisa Giancarla">
+		<meta name="contact" content="https://empiredirectory.net/index.php/misc/contact-us">
+
+		<link rel="icon" href="favicon.ico">
+
+		<link rel="stylesheet" href="bower_components/bootswatch-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bower_components/bootstrap-window/dist/css/bootstrap-window.css">
+		<link rel="stylesheet" href="bower_components/fTelnet/release/ftelnet.css">
+		<link rel="stylesheet" href="" id="fTelnetKeyboardCss">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/logo-72x72.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="img/logo-144x144.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- iPad Portrait -->
+		<link href="img/Launch-768x1004-port.png" media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+
+		<!-- iPad Landscape -->
+		<link href="img/Launch-748x1024-land.png" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+
+		<!-- iPad Portrait (Retina) -->
+		<link href="img/Launch-1536x2008-port.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+		<!-- iPad Landscape (Retina) -->
+		<link href="img/Launch-1496x2048-land.png" media="(device-width: 1536px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3060462-17', 'auto');
+    ga('send', 'pageview');
+
+	</script>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">jsImp Imperium Client</a>
+				</div>
+
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">File <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#" id="menuOpenDb" data-toggle="modal" data-target="#modalOpenDb">Open DB</a></li>
+								<li><a href="#" id="menuCloseDb" class="disabled">Close DB</a></li>
+								<li><a href="#" id="menuSaveDb" class="disabled">Save DB</a></li>
+								<li><a href="#" id="menuNewDb">New DB</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false" id="dropdownServer">Server <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#" id="menuConnect">Open Connection</a></li>
+								<li><a href="#" id="menuDisconnect" class="disabled">Close Connection</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false" id="dropdownView">View <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="#" id="menuMap"
+										data-window-target="#windowMap"
+										data-window-title="Map"
+										data-window-handle=".panel-heading"
+										data-title-handle=".panel-title"
+										data-clone="true">Map</a>
+								</li>
+								<li>
+									<a href="#" id="menuPlanet"
+										data-window-target="#windowPlanet"
+										data-window-title="Planet"
+										data-window-handle=".panel-heading"
+										data-title-handle=".panel-title"
+										data-clone="true">Planet</a>
+								</li>
+								<li>
+									<a href="#" id="menuShip"
+										data-window-target="#windowShip"
+										data-window-title="Ship"
+										data-window-handle=".panel-heading"
+										data-title-handle=".panel-title"
+										data-clone="true">Ship</a>
+								</li>
+								<li>
+									<a href="#" id="menuScripts"
+										data-window-target="#windowScripts"
+										data-window-title="Scripts"
+										data-window-handle=".panel-heading"
+										data-title-handle=".panel-title"
+										data-clone="true">Scripts</a>
+								</li>
+								<li>
+									<a href="#" id="menuCommands"
+										data-window-target="#windowCommands"
+										data-window-title="Commands"
+										data-window-handle=".panel-heading"
+										data-title-handle=".panel-title"
+										data-clone="true">Commands</a>
+								</li>
+								<li><a href="#" id="menuClearDisplay">Clear Display</a></li>
+								<li><a href="#" id="menuKeyboard">Keyboard</a></li>
+							</ul>
+						</li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false" id="dropdownConfigure">Configure <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#" id="menuHost" data-toggle="modal" data-target="#modalHost">Host</a></li>
+								<li><a href="#" id="menuSettings" data-toggle="modal" data-target="#modalSettings">Settings</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#" id="menuIndex" data-toggle="modal" data-target="#modalIndex">Index</a></li>
+								<li><a href="#" id="menuAbout" data-toggle="modal" data-target="#modalAbout">About</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12" id="mainStuff">
+					<img src="img/logo-1000x1000.svg" id="splashScreen" class="centeredImage">
+					<div id="fTelnetContainer" class="hidden"></div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="modalOpenDb" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">Open DB</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form">
+								<label for="selectDb">Choose DB to open</label>
+								<select id="selectDb" class="form-control"></select>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<p class="hidden" id="openDbModalStatus"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- View windows aren't modal, they need to be movable and resizeable -->
+			<div class="panel panel-primary hidden" id="windowMap">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Map
+						<button class="close" data-dismiss="window">x</button>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<p>...</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary hidden" id="windowPlanet">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Planet
+						<button class="close" data-dismiss="window">x</button>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<p>...</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary hidden" id="windowShip">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Ship
+						<button class="close" data-dismiss="window">x</button>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<p>...</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary hidden" id="windowScripts">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Scripts
+						<button class="close" data-dismiss="window">x</button>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<p>...</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary hidden" id="windowCommands">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Ship
+						<button class="close" data-dismiss="window">x</button>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<p>...</p>
+				</div>
+			</div>
+			<!-- View windows ends -->
+
+			<!-- Configuration modals -->
+			<div class="modal fade" id="modalHost" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">Host</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form">
+								<div class="form-group">
+									<label for="iServerName">Server Name</label>
+									<input type="text" class="form-control" id="iServerName" placeholder="empiredirectory.net">
+								</div>
+
+								<div class="form-group">
+									<label for="iPort">Port</label>
+									<input type="text" class="form-control" id="iPort" placeholder="3458">
+								</div>
+
+								<div class="form-group">
+									<label for="iPlayerName">Player Name</label>
+									<input type="text" class="form-control" id="iPlayerName">
+								</div>
+
+								<div class="form-group">
+									<label for="iPassword">Password</label>
+									<input type="password" class="form-control" id="iPassword">
+								</div>
+
+								<div class="form-group">
+									<label for="iGame">Game Description</label>
+									<input type="text" class="form-control" id="iGame">
+								</div>
+
+								<button type="submit" id="submitHost" class="btn btn-primary col-lg-12">Save</button>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<p class="hidden" id="hostModalStatus"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="modal fade" id="modalSettings" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">Settings</h4>
+						</div>
+						<div class="modal-body">
+							<p>&hellip;</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="modal fade" id="modalIndex" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">Help Index</h4>
+						</div>
+						<div class="modal-body">
+							<iframe src="helpindex.html" height=250 seamless=true width=550></iframe>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="modalAbout" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">jsImp Imperium Client</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-12">
+									<img src="img/logo-150x150.png" class="centeredImage">
+									<p class="muted text-center">(C) 2014-2015 Pocketfiction</p>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- container -->
+
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootswatch-dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/bootstrap-window/dist/js/bootstrap-window.min.js"></script>
+		<script src="bower_components/localforage/dist/localforage.min.js"></script>
+		<script src="bower_components/fTelnet/release/ftelnet.min.js" id="fTelnetScript"></script>
+		<script src="js/htmlterm.settings.js"></script>
+		<audio controls src="http://radio.opensimcity.org:8188/;.mp3"></audio>
+		<script type="text/javascript" src="http://ad.leadboltmobile.net/show_app_ad.js?section_id=811310328"></script>
+</body>
+</html>

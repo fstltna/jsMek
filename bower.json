@@ -1,0 +1,29 @@
+{
+  "name": "jsimp javascript imperium client",
+  "version": "0.1.0",
+  "authors": [
+    "Fernando L. Canizo (aka conan) <conan@muriandre.com>",
+    "Marisa Giancarla (aka MarisaG) <fstltna@me.com>"
+  ],
+  "description": "A nice web UI for the multiplayer network game Imperium",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "http://demos.muriandre.com/empiredirectory.net/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootswatch-dist": "3.3.0-cyborg",
+    "howler.js": "https://github.com/goldfire/howler.js.git#~1.1.25",
+    "howler": "~1.1.25",
+    "fTelnet": "https://github.com/rickparrish/fTelnet.git",
+    "Dexie": "https://github.com/dfahlander/Dexie.js.git",
+    "localforage": "~1.2.0",
+    "bootstrap-window": "~0.2.3-rc1"
+  }
+}
