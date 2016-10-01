@@ -366,19 +366,30 @@
 		<script src="bower_components/localforage/dist/localforage.min.js"></script>
 		<script src="bower_components/fTelnet/release/ftelnet.min.js" id="fTelnetScript"></script>
 		<script src="js/htmlterm.settings.js"></script>
+
+		<script>
+			function showAds() {
+				<!--
+    					alert("in showAds");
+					<script type="text/javascript" src="http://ad.leadboltmobile.net/show_app_ad.js?section_id=884041206"></script>
+				-->
+			}
+
+			$.ajax({
+  				url: '/ipaid.txt',
+  				success: function(data){
+					<!--
+    						alert('exists');
+					-->
+  				},
+				error: function(data){
+					showAds();
+					<!--
+						alert('does not exist');
+					-->
+  				},
+			})
+		</script>
 		<audio controls src="http://radio.opensimcity.org:8188/;.mp3"></audio>
-<script>
-$.get("/ipaid.txt")
-    .done(function() { 
-        // exists code 
-document.write("They paid");
-    }).fail(function() { 
-document.write("They didnt pay");
-        // not exists code
-</script>
-		<script type="text/javascript" src="http://ad.leadboltmobile.net/show_app_ad.js?section_id=884041206"></script>
-<script>
-    })
-</script>
 </body>
 </html>
