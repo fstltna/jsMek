@@ -1,0 +1,9 @@
+Code to check if a file exists
+============
+function UrlExists(url)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', "/ipaid.txt", false);
+    http.send();
+    return http.status==200;
+}
